@@ -1,0 +1,345 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poultry Farm Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* General styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6bafdc, #f4c95d);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Header */
+        .header {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        /* Navbar */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #f4c95d;
+        }
+
+        /* Dropdown Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 70px;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 30px;
+            z-index: 9;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+        .sidebar.closed {
+            width: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #4a90e2;
+            padding: 10px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 11;
+        }
+
+        /* Main content sections */
+        .container {
+            margin: 0 auto;
+            padding: 60px 20px;
+            max-width: 1000px;
+        }
+
+        .hero, .about, .services, .contact, .testimonials, .blog, .faq {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            color: #fff;
+            background-color: #ff6f61;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background-color: #f8f8f8;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .service-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .service-item h3 {
+            color: #4a90e2;
+            margin: 10px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    <aside class="sidebar closed">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </aside>
+
+    <!-- Header & Navbar -->
+    <header class="header">
+        <h1>Poultry Farm Management</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <h1>Welcome to Our Poultry Farm Management System</h1>
+        <p>We help farmers enhance productivity and profitability.</p>
+    </section>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h2>Revolutionizing Poultry Farm Management</h2>
+            <p>Optimize your farm’s efficiency, profitability, and sustainability with our integrated system.</p>
+            <a href="#services" class="btn-primary">Discover More</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>We are a leading poultry farm management system, dedicated to helping farmers enhance their productivity and profitability. Our solution leverages modern technology for better farm management.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="assets/images/management.JPEG" alt="Farm Management">
+                <h3>Farm Management</h3>
+                <p>Manage day-to-day operations, from tracking inventory to managing feeding schedules, optimizing productivity.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/service1.JPEG" alt="Inventory Management">
+                <h3>Inventory Management</h3>
+                <p>Track inventory in real-time, anticipate supply needs, and avoid costly shortages with automated alerts.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/service2.JPEG" alt="Sales Tracking">
+                <h3>Sales Tracking</h3>
+                <p>Monitor revenue, sales trends, and customer preferences to make informed decisions that boost profitability.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/service3.JPEG" alt="Health Monitoring">
+                <h3>Health Monitoring</h3>
+                <p>Track flock health, vaccination schedules, and detect potential issues early to prevent disease spread.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/loan.JPEG" alt="Loan Services">
+                <h3>Loan Services</h3>
+                <p>Access financing options to expand your farm, ensuring resources are available for growth and success.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/bio.JPEG" alt="Biosecurity Solutions">
+                <h3>Biosecurity Solutions</h3>
+                <p>Ensure high biosecurity standards to protect livestock from diseases, safeguarding animal health.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/training.JPEG" alt="Training & Support">
+                <h3>Training & Support</h3>
+                <p>Ongoing training and support to help farmers optimize the use of our system and achieve their goals.</p>
+            </div>
+            <div class="service-item">
+                <img src="assets/images/statistics.JPEG" alt="Analytics & Reporting">
+                <h3>Analytics & Reporting</h3>
+                <p>Gain insights through data analysis, enabling informed decisions for improved farm management.</p>
+            </div>
+        </div>
+    </section>
+
+       <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-item">
+            <p>"This system has completely transformed our farm management. It’s efficient and easy to use!"</p>
+            <h4>John Mwansa, Farmer</h4>
+        </div>
+        <div class="testimonial-item">
+            <p>"Thanks to the loan services, we were able to grow our farm and expand our operations. Highly recommended!"</p>
+            <h4>Jane Mutale, Farmer</h4>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <h2>Our Blog</h2>
+        <div class="blog-post">
+            <h3>How Technology Is Transforming Poultry Farming</h3>
+            <p>Technology is playing a crucial role in increasing productivity in the poultry farming sector. Read more about how digital tools are enhancing operations.</p>
+        </div>
+        <div class="blog-post">
+            <h3>Why Biosecurity Matters in Poultry Farming</h3>
+            <p>Biosecurity is key to protecting your livestock from diseases. Learn how to improve biosecurity practices on your farm to ensure healthy poultry.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>What is the Poultry Farm Management System?</h4>
+            <p>It is an integrated system designed to help poultry farmers manage their farms efficiently by tracking inventory, monitoring farm conditions, and ensuring biosecurity standards.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How do I access financing for my poultry farm?</h4>
+            <p>Our loan services connect farmers with financial institutions, offering affordable loans to help you expand and modernize your farm operations.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like more information, feel free to reach out!</p>
+        <p>Email: <strong>info@poultryfarm.com</strong><br>
+        Phone: <strong>+260-978-406-332</strong></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Integrated Poultry Farm Management System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.classList.toggle('closed');
+        }
+    </script>
+</body>
+</html>
